@@ -17,7 +17,7 @@ header a {
 }
 
 header img {
-  height: 100%;
+  height: 200px
 }
 .nav-bar {
   display: flex;
@@ -33,10 +33,69 @@ header img {
 }
 
 .nav-bar li {
-  margin: 0 10px;
+  margin: 0 100px;
+  margin-right: 5px;
+  font-size: 33px;
+  justify-content: space-between;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: 600;
+  color: #B57452;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+
 }
 
 .nav-bar a {
   text-decoration: none;
-  color: #333;
+  color:#B57452;
+}
+
+@media (max-width: 850px) {
+  .nav-links {
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color:black;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.3s ease-in-out;
+  }
+
+  .nav-links.visible {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .burger-menu {
+    display: block;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    padding: 10px;
+    margin: 0;
+    outline: none;
+    font-size: 20px;
+    color: #B57452;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .burger-menu .bar {
+    display: block;
+    width: 20px;
+    height: 2px;
+    background-color: #333;
+    margin: 5px auto;
+    transition: all 0.3s ease-in-out;
+  }
+}
+
+body{
+  background-color: #FFBD59;
 }
