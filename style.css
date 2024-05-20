@@ -1,9 +1,42 @@
 *{
+padding: 0;
+margin: 10;
+text-decoration: none;
+list-style: none;
+box-sizing: border-box;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header a {
+  margin-right: auto;
+}
+
+header img {
+  height: 100%;
+}
+.nav-bar {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+.nav-bar ul {
+  list-style: none;
   margin: 0;
   padding: 0;
-  
+  display: flex;
 }
-img{
-  
 
+.nav-bar li {
+  margin: 0 10px;
+}
+
+.nav-bar a {
+  text-decoration: none;
+  color: #333;
 }
