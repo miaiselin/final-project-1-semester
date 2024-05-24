@@ -1,101 +1,161 @@
 *{
+font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+margin: 0;
 padding: 0;
-margin: 10;
-text-decoration: none;
-list-style: none;
 box-sizing: border-box;
 }
 
-header {
+body{
+  background: #FFBD59;
+}
+
+.header {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 25px;
+  background: #FFBD59;
+  transition: 0.3s;
+}
+
+.logo a{
+  display: block;
+}
+
+.logo a img{
+  display: block;
+  width: 250px 
+}
+
+.navigation {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-header a {
-  margin-right: auto;
-}
-
-header img {
-  height: 200px
-}
-.nav-bar {
+.menu{
   display: flex;
-  align-items: center;
+  justify-content: center;
   flex-direction: row;
+  align-items: center;
+  z-index: 1;
+  transition: 0.5s;
 }
 
-.nav-bar ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
+.menu li {
+  list-style-type: none;
 }
 
-.nav-bar li {
-  margin: 0 100px;
-  margin-right: 5px;
-  font-size: 33px;
-  justify-content: space-between;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  font-weight: 600;
+.menu li a{
   color: #B57452;
   text-decoration: none;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-
+  display: block;
+  padding: 40px 25px;
+  font-size: 18px;
+  line-height: 1;
+  transition: 0.3s;
+}
+.menu li a:hover{
+  box-shadow: 0 -5px 0px #fff inset,
+  500px 0 0 rgba(255,255,255,0.03) inset;
+  padding: 35px 25px 45px 25px;
 }
 
-.nav-bar a {
-  text-decoration: none;
-  color:#B57452;
+.hamburger{
+  position: relative;
+  width: 30px;
+  height: 4px;
+  background: white;
+  border-radius: 10px;
+  cursor: pointer;
+  z-index: 2;
+  transition: 0.3s;
 }
 
-@media (max-width: 850px) {
-  .nav-links {
+.hamburger:before,
+.hamburger:after{
+  content: '';
+  position: absolute;
+  height: 4px;
+  right: 0;
+  background: white;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.hamburger:before{
+  top: -10px;
+  width: 20px;
+}
+
+.hamburger:after{
+  top: 10px;
+  width: 25px;
+}
+
+.toggle-menu{
+  position: absolute;
+  width: 30px;
+  height: 100%;
+  z-index: 3;
+  cursor: pointer;
+  opacity: 0;
+}
+
+.hamburger,
+.toggle-menu{
+  display: none;
+}
+
+.navigation input:checked ~ .hamburger{
+  background: transparent;
+}
+.navigation input:checked ~ .hamburger:before{
+  top: 0;
+  transform: rotate(-45deg);
+  width: 30px;
+}
+.navigation input:checked ~ .hamburger:after{
+  top: 0;
+  transform: rotate(45deg);
+  width: 30px;
+}
+.navigation input:checked ~ .menu{
+  right: 0;
+  box-shadow: -20px 0 40px rgba(0,0,0,0.3);
+}
+
+@media screen and (max-width: 992px){
+  .hamburger, 
+  .toggle-menu{
+    display: block;
+  }
+  .header{
+    padding: 20x 20px;
+  }
+  .menu{
+    justify-content: start;
     flex-direction: column;
-    position: absolute;
-    top: 100%;
-    left: 0;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    right: -300px;
+    background: #ffbd59;
+    width: 300px;
+    height: 100%;
+    padding-top: 70px;
+  }
+
+  .menu li {
     width: 100%;
-    background-color:black;
-    padding: 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    visibility: hidden;
-    opacity: 0;
-    transition: visibility 0s, opacity 0.3s ease-in-out;
   }
-
-  .nav-links.visible {
-    visibility: visible;
-    opacity: 1;
-  }
-
-  .burger-menu {
-    display: block;
-    cursor: pointer;
-    background-color: transparent;
-    border: none;
-    padding: 10px;
-    margin: 0;
-    outline: none;
-    font-size: 20px;
-    color: #B57452;
-    text-decoration: none;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-  }
-
-  .burger-menu .bar {
-    display: block;
-    width: 20px;
-    height: 2px;
-    background-color: #333;
-    margin: 5px auto;
-    transition: all 0.3s ease-in-out;
-  }
+  .menu li a, 
+  .menu li a:hover{
+    padding: 50px;
+    font-size: 24px;
+    box-shadow: 0 1px 0 rgba(255,255,255,0.1);
+    inset;
 }
-
-body{
-  background-color: #FFBD59;
 }
